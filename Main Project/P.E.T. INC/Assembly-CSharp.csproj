@@ -66,6 +66,8 @@
      <Compile Include="Assets\Graphics\Pet\PetEvolution.cs" />
      <Compile Include="Assets\MainScripts\ChangeSceneScript.cs" />
      <Compile Include="Assets\MainScripts\DecreaseStatBar.cs" />
+     <Compile Include="Assets\MainScripts\Fire.cs" />
+     <Compile Include="Assets\MainScripts\FireParticle.cs" />
      <Compile Include="Assets\MainScripts\GlobalTimer.cs" />
      <Compile Include="Assets\MainScripts\ObjectScript.cs" />
      <Compile Include="Assets\MainScripts\PetDeaths.cs" />

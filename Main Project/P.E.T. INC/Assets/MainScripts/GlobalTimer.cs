@@ -11,7 +11,7 @@ public class GlobalTimer : MonoBehaviour {
 
 	//Global time variables
 	public  int playtime = 0;
-	public  int Playtime;
+	public  int Playtime = 0;
 	private int sec = 0;
 	private int min = 0;
 	private int hours = 0;
@@ -30,6 +30,7 @@ public class GlobalTimer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		playtime = PlayerPrefs.GetInt ("Playtime");
 		StartCoroutine ("Playtimer");
 		setTimeText ();
 
@@ -43,10 +44,9 @@ public class GlobalTimer : MonoBehaviour {
 		DecreaseStatBar getHunger = hunger.GetComponent<DecreaseStatBar> (); 
 		DecreaseStatBar getHappy = happiness.GetComponent<DecreaseStatBar> (); 
 		DecreaseStatBar getClean = cleanliness.GetComponent<DecreaseStatBar> (); 
-		playtime = PlayerPrefs.GetInt ("Playtime");
+		PlayerPrefs.SetInt ("Playtime", playtime);
 
 		while (getHunger.height != 0 || getHappy.height != 0 ||getHappy.height != 0) {
-			playtime = PlayerPrefs.GetInt ("Playtime");
 			yield return new WaitForSeconds(1);
 			playtime += 1;
 			sec = (playtime %60);
