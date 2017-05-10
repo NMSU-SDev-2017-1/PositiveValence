@@ -31,9 +31,9 @@ public class GlobalTimer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		playtime = PlayerPrefs.GetInt ("Playtime");
+		PlayerPrefs.SetFloat ("Hunger", 100);
 		StartCoroutine ("Playtimer");
 		setTimeText ();
-
 	}
 
 

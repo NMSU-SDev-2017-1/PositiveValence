@@ -20,7 +20,7 @@ public class FireParticle : MonoBehaviour {
 
 	// Update is called once per frame. Destroys fire after some time and translate each fire after.
 	void Update () {
-		TimeAlive += Time.deltaTime;
+		TimeAlive -= Time.deltaTime;
 		if (TimeAlive >= LifeSpan) {
 			Destroy (gameObject);
 			return;

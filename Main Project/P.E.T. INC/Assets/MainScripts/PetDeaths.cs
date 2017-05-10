@@ -23,7 +23,7 @@ public class PetDeaths : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		sr = GetComponent<SpriteRenderer> (); 
-		scale = 0.07f;
+		scale = 0.1f;
 	}
 	
 	// Update is called once per frame

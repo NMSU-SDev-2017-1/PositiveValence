@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿//Program keeps track of the pet's state of being. Updated in May by Melissa to change the settings 
+//to a global so that the health will be kept constants throughout the different scenes.
+//Last Edited by Melissa Duran May, 2017
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,10 +26,18 @@ public class PetEmotion : MonoBehaviour {
 	public Sprite excited3;
 	public Sprite angry3;
 
+	//Global counters pet's stats
+	public float heightHunger;
+	public float heightHapiness;
+	public float heightCLeanliness;
+
+	//GameObjects of pet's stats
 	public GameObject happiness;
 	public GameObject hunger;
 	public GameObject cleanliness;
 	public GameObject time;
+
+
 
 	private int phaseLevel = 1;
 
@@ -34,10 +46,10 @@ public class PetEmotion : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		sr = GetComponent<SpriteRenderer> ();
-
-
 	}
 
+
+	//Evolves the characters once the timer gets to a certain time.
 	int returnLevel (){
 		GlobalTimer getTime = time.GetComponent<GlobalTimer> ();
 		if (getTime.playtime <= 5)
@@ -55,6 +67,7 @@ public class PetEmotion : MonoBehaviour {
 		DecreaseStatBar getHunger = hunger.GetComponent<DecreaseStatBar> ();
 		DecreaseStatBar getHappiness = happiness.GetComponent<DecreaseStatBar> ();
 		DecreaseStatBar getCleanliness = cleanliness.GetComponent<DecreaseStatBar> ();
+
 
 		phaseLevel = returnLevel ();
 			
@@ -122,5 +135,6 @@ public class PetEmotion : MonoBehaviour {
 				break;
 			}
 		}
+			
 	}
 }

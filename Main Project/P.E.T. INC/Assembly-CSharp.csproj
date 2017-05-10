@@ -64,12 +64,17 @@
      <Compile Include="Assets\Game Assets\Scripts\ShooterCS.cs" />
      <Compile Include="Assets\Graphics\Kitchen\timer.cs" />
      <Compile Include="Assets\Graphics\Pet\PetEvolution.cs" />
+     <Compile Include="Assets\MainScripts\CameraShake.cs" />
+     <Compile Include="Assets\MainScripts\CameraShaker.cs" />
      <Compile Include="Assets\MainScripts\ChangeSceneScript.cs" />
      <Compile Include="Assets\MainScripts\DecreaseStatBar.cs" />
+     <Compile Include="Assets\MainScripts\DefaultAllValues.cs" />
      <Compile Include="Assets\MainScripts\Fire.cs" />
      <Compile Include="Assets\MainScripts\FireParticle.cs" />
+     <Compile Include="Assets\MainScripts\GlobalCoin.cs" />
      <Compile Include="Assets\MainScripts\GlobalTimer.cs" />
      <Compile Include="Assets\MainScripts\ObjectScript.cs" />
+     <Compile Include="Assets\MainScripts\Perlin.cs" />
      <Compile Include="Assets\MainScripts\PetDeaths.cs" />
      <Compile Include="Assets\MainScripts\PetEmotion.cs" />
      <Compile Include="Assets\MainScripts\PetMovement.cs" />
@@ -105,6 +110,10 @@
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{90FD5C72-A744-A438-557F-100624C78DBB}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -27,3 +27,4 @@ C:\Users\Melissa\Documents\GitHub\PositiveValence\Main Project\P.E.T. INC\Temp\b
 C:\Users\Melissa\Documents\GitHub\PositiveValence\Main Project\P.E.T. INC\obj\Debug\Assembly-CSharp.dll
 C:\Users\Melissa\Documents\GitHub\PositiveValence\Main Project\P.E.T. INC\obj\Debug\Assembly-CSharp.pdb
 C:\Users\Melissa\Documents\GitHub\PositiveValence\Main Project\P.E.T. INC\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Melissa\Documents\GitHub\PositiveValence\Main Project\P.E.T. INC\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
