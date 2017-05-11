@@ -49,7 +49,8 @@ public class PetEmotion : MonoBehaviour {
 	}
 
 
-	//Evolves the characters once the timer gets to a certain time.
+
+	//Let's the script know in which stage the pet should be in
 	int returnLevel (){
 		GlobalTimer getTime = time.GetComponent<GlobalTimer> ();
 		if (getTime.playtime <= 5)
@@ -61,16 +62,18 @@ public class PetEmotion : MonoBehaviour {
 		return 0;
 		}
 
-	
+
+
 	// Update is called once per frame
 	void Update () {
+		//Creates the hunger, happiness, and cleanliness bars
 		DecreaseStatBar getHunger = hunger.GetComponent<DecreaseStatBar> ();
 		DecreaseStatBar getHappiness = happiness.GetComponent<DecreaseStatBar> ();
 		DecreaseStatBar getCleanliness = cleanliness.GetComponent<DecreaseStatBar> ();
 
-
 		phaseLevel = returnLevel ();
-			
+	
+		//If average of all stats is over 75 return excited
 		if ((getHunger.height + getHappiness.height + getCleanliness.height) / 3 > 75) {
 			switch (phaseLevel){
 			case 1:
@@ -83,10 +86,12 @@ public class PetEmotion : MonoBehaviour {
 				sr.sprite = excited3;
 				break;
 			default: 
-				print ("Error");
+				print ("Error in excited");
 				break;
 			}
 		}
+
+		//If average of all stats are between 75 and 50 return happy
 		if ((getHunger.height + getHappiness.height + getCleanliness.height) / 3 <= 75 &&(getHunger.height + getHappiness.height + getCleanliness.height) / 3 > 50) {
 			switch (phaseLevel){
 			case 1:
@@ -99,11 +104,11 @@ public class PetEmotion : MonoBehaviour {
 				sr.sprite = happy3;
 				break;
 			default: 
-				print ("Error");
+				print ("Error in happy");
 				break;
 			}
 		}
-		if ((getHunger.height + getHappiness.height + getCleanliness.height) / 3 <= 50 &&(getHunger.height + getHappiness.height + getCleanliness.height) / 3 > 25) {
+		if ((getHunger.height + getHappiness.height + getCleanliness.height) / 3 <= 50 &&(getHunger.height + getHappiness.height + getCleanliness.height) / 3 > 25 || getHappiness.height < 25) {
 			switch (phaseLevel){
 			case 1:
 				sr.sprite = sad1;
@@ -115,11 +120,11 @@ public class PetEmotion : MonoBehaviour {
 				sr.sprite = sad3;
 				break;
 			default: 
-				print ("Error");
+				print ("Error in sad");
 				break;
 			}
 		}
-		if ((getHunger.height + getHappiness.height + getCleanliness.height) / 3 <= 25 &&(getHunger.height + getHappiness.height + getCleanliness.height) / 3 > 0) {
+		if ((getHunger.height + getHappiness.height + getCleanliness.height) / 3 <= 25 &&(getHunger.height + getHappiness.height + getCleanliness.height) / 3 > 0|| getHunger.height < 25|| getCleanliness.height < 25) {
 			switch (phaseLevel){
 			case 1:
 				sr.sprite = angry1;
@@ -131,7 +136,7 @@ public class PetEmotion : MonoBehaviour {
 				sr.sprite = angry3;
 				break;
 			default: 
-				print ("Error");
+				print ("Error: In angry");
 				break;
 			}
 		}

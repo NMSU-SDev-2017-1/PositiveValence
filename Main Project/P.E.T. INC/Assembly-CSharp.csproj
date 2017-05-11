@@ -69,6 +69,7 @@
      <Compile Include="Assets\MainScripts\ChangeSceneScript.cs" />
      <Compile Include="Assets\MainScripts\DecreaseStatBar.cs" />
      <Compile Include="Assets\MainScripts\DefaultAllValues.cs" />
+     <Compile Include="Assets\MainScripts\DestroyObjects.cs" />
      <Compile Include="Assets\MainScripts\Fire.cs" />
      <Compile Include="Assets\MainScripts\FireParticle.cs" />
      <Compile Include="Assets\MainScripts\GlobalCoin.cs" />
