@@ -7,11 +7,16 @@ public class PetMovement : MonoBehaviour {
 	public int speed;
 	public static PetMovement checkPulse;
 	public bool dead;
+	public Transform destination;
+	public Rigidbody2D rb;
+	public GameObject[] recent = new GameObject[10]; 
+	public GameObject[] gos; 
 
 	private int rotate;
 
 	// Use this for initialization
 	void Start () {
+		rb = GetComponent<Rigidbody2D> ();  
 		checkPulse = this;
 		dead = false;
 		rotate = 0;
@@ -20,28 +25,28 @@ public class PetMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Vector2 destination = findClosestObject ().transform.position;
-		Vector2 posNow = transform.position;
+		gos = GameObject.FindGameObjectsWithTag("Object");
 
-		if (dead != true) { 
-			if (Mathf.Abs (posNow.x) - Mathf.Abs (destination.x) != 0) {
-				if (posNow.x - destination.x >= 0) {
-					transform.Translate (Vector2.left * Time.deltaTime * speed);
-				} else {
-					transform.Translate (Vector2.right * Time.deltaTime * speed);
-				}
-			} else {
-				transform.Translate (Vector2.zero * Time.deltaTime * 0);
-			}
+		destination = findClosestObject (gos).transform;
+		float step = speed* 0.01f;  
+
+		if (dead != true) {
+			transform.position =Vector2.MoveTowards(transform.position, destination.position, step ) ;       
 		} else {
 			RotateOnDeath ();
 		}
 			
 	}
 
-	GameObject findClosestObject() {
-		GameObject[] gos;
-		gos = GameObject.FindGameObjectsWithTag("Object");
+	void OnCollisionEnter2D(Collision2D col){
+		for (int i = 9; i != 0; i--) {
+			recent [i - 1] = recent [i];
+		}
+		recent [0] = col.gameObject; 
+		col.gameObject.tag = "Used"; 
+	}
+
+	GameObject findClosestObject(GameObject[] gos ) {
 		GameObject closest = null;
 		float distance = Mathf.Infinity;
 		Vector3 position = transform.position;

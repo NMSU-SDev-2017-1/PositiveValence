@@ -94,6 +94,8 @@
      <Compile Include="Assets\Scripts\PlayerShooting.cs" />
      <Compile Include="Assets\Scripts\SelfDestruct.cs" />
      <Compile Include="Assets\Scripts\Snake.cs" />
+     <Compile Include="Assets\assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\assets\sceneChanger.cs" />
      <Compile Include="Assets\inventoryManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

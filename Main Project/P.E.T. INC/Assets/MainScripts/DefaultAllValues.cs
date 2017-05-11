@@ -10,6 +10,7 @@ public class DefaultAllValues : MonoBehaviour {
 	public float clenliness = 100;
 	public float happy = 100;
 	public int playtime = 0;
+	public int coins = 30;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +18,7 @@ public class DefaultAllValues : MonoBehaviour {
 		PlayerPrefs.SetFloat ("Cleanliness", clenliness);
 		PlayerPrefs.SetFloat ("Happiness", happy);
 		PlayerPrefs.SetInt ("Playtime", playtime);
-		
+		PlayerPrefs.SetInt ("Coins", coins);
 	}
 
 }
