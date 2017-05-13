@@ -66,7 +66,6 @@
      <Compile Include="Assets\Game Assets\Scripts\ShooterCS.cs" />
      <Compile Include="Assets\Graphics\Kitchen\timer.cs" />
      <Compile Include="Assets\Graphics\Pet\PetEvolution.cs" />
-     <Compile Include="Assets\MainScripts\CameraShake.cs" />
      <Compile Include="Assets\MainScripts\CameraShaker.cs" />
      <Compile Include="Assets\MainScripts\ChangeSceneScript.cs" />
      <Compile Include="Assets\MainScripts\DecreaseStatBar.cs" />

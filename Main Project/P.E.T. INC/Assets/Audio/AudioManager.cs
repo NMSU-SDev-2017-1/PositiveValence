@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿/*Starts a selected music clip. 
+Las edited by Melissa Duran 5/2017*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +10,7 @@ public class AudioManager : MonoBehaviour {
 	public AudioSource BGM;
 	// Use this for initialization
 	void Start () {
-		DontDestroyOnLoad (gameObject);
+		DontDestroyOnLoad (gameObject);//Prevents 
 		
 	}
 

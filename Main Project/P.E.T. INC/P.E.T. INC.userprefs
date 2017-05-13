@@ -1,13 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\assets\NewBehaviourScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MainScripts\PetEmotion.cs">
     <Files>
-      <File FileName="Assets\Audio\AudioManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Audio\SwitchMusicOnLoad.cs" Line="1" Column="1" />
       <File FileName="Assets\MainScripts\PetMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\MainScripts\GlobalCoin.cs" Line="13" Column="40" />
-      <File FileName="Assets\assets\NewBehaviourScript.cs" Line="92" Column="2" />
-      <File FileName="Assets\MainScripts\DefaultAllValues.cs" Line="25" Column="1" />
+      <File FileName="Assets\MainScripts\ChangeSceneScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\MainScripts\SS.cs" Line="1" Column="1" />
+      <File FileName="Assets\MainScripts\DecreaseStatBar.cs" Line="1" Column="1" />
+      <File FileName="Assets\MainScripts\PetDeaths.cs" Line="1" Column="1" />
+      <File FileName="Assets\MainScripts\PetEmotion.cs" Line="1" Column="1" />
+      <File FileName="Assets\MainScripts\DefaultAllValues.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
