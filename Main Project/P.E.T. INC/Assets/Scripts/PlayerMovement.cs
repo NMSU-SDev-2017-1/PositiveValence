@@ -3,66 +3,85 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-	public float maxSpeed = 5f;
-	public float rotSpeed = 180f;
+    public AudioClip HopSound;
+    AudioSource playerAudio;
+    Animator anim;
+    int FloorMask;
+    PlayerDeath playerDeath;
 
-	float shipBoundaryRadius = 0.5f;
+    FroggerMovement Up = new FroggerMovement() { direction = Vector3.up, rotation = new Vector3(0, 0, 0) };
+    FroggerMovement Down = new FroggerMovement() { direction = -Vector3.up, rotation = new Vector3(0, 0, 180) };
+    FroggerMovement Left = new FroggerMovement() { direction = -Vector3.right, rotation = new Vector3(0, 0, 90) };
+    FroggerMovement Right = new FroggerMovement() { direction = Vector3.right, rotation = new Vector3(0, 0, 270) };
 
-	void Start () {
-	
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+        playerAudio = GetComponent<AudioSource>();
+        FloorMask = LayerMask.GetMask("Floor");
+        playerDeath = GetComponent<PlayerDeath>();
+    }
+    
+	void Update () 
+    {
+        {
+            if (Input.GetButtonDown("Up"))
+            {
+                Move(Up);
+            }
+            else
+            {
+                if (Input.GetButtonDown("Down"))
+                {
+                    Move(Down);
+                }
+                else
+                {
+                    if (Input.GetButtonDown("Right"))
+                    {
+                        Move(Right);
+                    }
+                    else
+                    {
+                        if (Input.GetButtonDown("Left"))
+                        {
+                            Move(Left);
+                        }
+                    }
+                }
+            }
+        }
+        
 	}
-	
-	void Update () {
 
-		// ROTATE the ship.
+    void FixedUpdate()
+    {
+        if (!IsSomewhereSafe())
+        {
+            playerDeath.Die();
+        }
+    }
 
-		// Grab our rotation quaternion
-		Quaternion rot = transform.rotation;
+    void Move(FroggerMovement movement)
+    {
+        playerAudio.clip = HopSound;
+        playerAudio.Play();
+        anim.SetTrigger("Walk");
+        transform.position = transform.position + movement.direction;
+        transform.eulerAngles = movement.rotation;                
+    }
 
-		// Grab the Z euler angle
-		float z = rot.eulerAngles.z;
+    bool IsSomewhereSafe()
+    {
+        var hit = Physics2D.Raycast(transform.position, Vector3.forward, 0.5f, FloorMask);
+        return (hit.collider != null);
+    }
 
-		// Change the Z angle based on input
-		z -= Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
-
-		// Recreate the quaternion
-		rot = Quaternion.Euler( 0, 0, z );
-
-		// Feed the quaternion into our rotation
-		transform.rotation = rot;
-
-		// MOVE the ship.
-		Vector3 pos = transform.position;
-		 
-		Vector3 velocity = new Vector3(0, Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime, 0);
-
-		pos += rot * velocity;
-
-		// RESTRICT the player to the camera's boundaries!
-
-		// First to vertical, because it's simpler
-		if(pos.y+shipBoundaryRadius > Camera.main.orthographicSize) {
-			pos.y = Camera.main.orthographicSize - shipBoundaryRadius;
-		}
-		if(pos.y-shipBoundaryRadius < -Camera.main.orthographicSize) {
-			pos.y = -Camera.main.orthographicSize + shipBoundaryRadius;
-		}
-
-		// Now calculate the orthographic width based on the screen ratio
-		float screenRatio = (float)Screen.width / (float)Screen.height;
-		float widthOrtho = Camera.main.orthographicSize * screenRatio;
-
-		// Now do horizontal bounds
-		if(pos.x+shipBoundaryRadius > widthOrtho) {
-			pos.x = widthOrtho - shipBoundaryRadius;
-		}
-		if(pos.x-shipBoundaryRadius < -widthOrtho) {
-			pos.x = -widthOrtho + shipBoundaryRadius;
-		}
-
-		// Finally, update our position!!
-		transform.position = pos;
+    private class FroggerMovement
+    {
+        public Vector3 direction;
+        public Vector3 rotation;
+    }
 
 
-	}
 }
