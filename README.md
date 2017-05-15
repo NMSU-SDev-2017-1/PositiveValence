@@ -1,8 +1,8 @@
-##P.E.T. INC
+#P.E.T. INC#
 
-## PositiveValence
+## PositiveValence##
 
-##ORGANIZATION
+##ORGANIZATION##
 There are three main files included in this repository. 
 
 1)Graphics - contains all the graphics used in the game. This is an extra copy for easy access in case more graphics need to be made.
@@ -13,16 +13,16 @@ difficulty.
 
 3) MiniGames - similarly to graphics, thsi folder is located here for convenince in case additions need to be implemented or tested.
 
-##INSTALLATION - For Users
+##INSTALLATION - For Users##
 A playable file is available under Main Project\P.E.T. INC - playable game file . Download the files and click on the P.E.T. file to run the game.
 
-##INSTALLATION - For Developers
+##INSTALLATION - For Developers##
 The Unity project is under Main Project file. The folder titled P.E.T. INC hold the entire project. Download this file and you will be able to open using unity in your computer.
 For more information about Unity or instructions on how to install it, please refer to the following link: https://store.unity.com/
 
 
-##SCRIPTS
-*public void ShakeCamera(float shakePower, float shakeDuration) Sets values for shakeamount and shaketimer to create the effect of an earthquake in the game.
+##SCRIPTS##
+ Markup :*public void ShakeCamera(float shakePower, float shakeDuration) Sets values for shakeamount and shaketimer to create the effect of an earthquake in the game.
 
 *public void switchScene(int changeTheScene) Is a function used in every button that redirects from one scene to another in order to move around between scenes.
 
@@ -69,5 +69,5 @@ to purchase
 
 *public void Sell()  this function decreases the amount of items from the inventory and returns currency to the shop scene.
 
-##Bugs
+##Bugs##
 Deaths of the pet does not change the sprite when the pet dies when not in the livingroom.
